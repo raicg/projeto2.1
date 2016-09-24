@@ -80,7 +80,7 @@ void point::translada(float a, float b){
 
 
 void point::imprime(void){
-    cout << "(" << x << " , " << y << ")" << endl;
+    cout << "(" << x << "," << y << ")" << endl;
     }
 
 
