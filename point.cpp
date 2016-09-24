@@ -75,7 +75,7 @@ float point::norma(void){
 //funcao translada (Translada o ponto (x,y) de (+a,+b), de modo que, após as coordenadas do ponto serão (x+a,y+b):
 void point::translada(float a, float b){
     x = x+a;
-    y = y+a;
+    y = y+b;
     }
 
 
