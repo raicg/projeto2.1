@@ -12,7 +12,7 @@ private:
 public:
     poligono();
 
-    //pergar vertices do poligono
+    //pegar vertices do poligono
     void vertices();
 
     //retorna o numero de vertices
