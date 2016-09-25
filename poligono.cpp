@@ -46,7 +46,7 @@ poligono::poligono(){}
     //funcao para retornar a area do poligono
     float poligono::area()
     {
-        point V[100];
+        
         float a1,a2,afinal;
         for(int i=0;i<N;i++)
         {
@@ -61,7 +61,6 @@ poligono::poligono(){}
     //funcao para transladar o poligono
     void poligono::move(float a, float b)
     {
-        point V[100];
 
         for(int i = 0;i < N;i++)
         {
