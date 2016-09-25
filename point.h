@@ -4,11 +4,9 @@
 
 class point
 {
-
 public:
-
     //variaveis X e Y dos pontos:
-    float x, y;
+    float x,y;
 
     point();
     //funcao setar X:

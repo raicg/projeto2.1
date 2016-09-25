@@ -3,12 +3,15 @@
 #include <cmath>
 #include <iostream>
 #include <math.h>
-#include <iostream>
 
 using namespace std;
 
-poligono::poligono(){}
+poligono::poligono()
+{
+}
 
+
+poligono::~poligono(){}
 
 
     //funcao para pegar os vertices
@@ -29,13 +32,22 @@ poligono::poligono(){}
                 cin>>aux;
 
                 V[i].setXY(X,Y);
-                N++;
                     if(aux=='s')
                     {
                      break;
                     }
+                N++;
             }
      }
+
+    //funcao para pegar um vertice fornecendo um valor x e y
+    void poligono::vertice(float mx, float my){
+        V[N].setX(mx);
+        V[N].setY(my);
+        N++;
+    }
+
+
 
     //funcao para retornar a quantidade de vertices
     int poligono::returnN()
@@ -44,62 +56,53 @@ poligono::poligono(){}
     }
 
     //funcao para retornar a area do poligono
-    float poligono::area()
+    double poligono::area(float mlargura, float maltura)
     {
-        point V[100];
-        float a1,a2,afinal;
-        for(int i=0;i<N;i++)
-        {
-            a1 += V[i].getX() * V[i+1].getY();
-            a2 += V[i+1].getX() * V[i].getY();
-        }
-        afinal = (fabs(a1-a2))/2; // calcula o módulo
-        return afinal;
+        double area;
+        area = mlargura*maltura;
+        return area;
+
+
 
     }
 
     //funcao para transladar o poligono
     void poligono::move(float a, float b)
     {
-        point V[100];
-
-        for(int i = 0;i < N;i++)
-        {
+        int i;
+        for(i=0;i<N;i++){
             V[i].setX(V[i].getX()+a);
             V[i].setY(V[i].getY()+b);
-
         }
     }
 
     //funcao para rotacionar o poligo teta graus entorno de um ponto fornecido pelo usuario
     void poligono::rotacionar()
     {
-        float angulo,x,y,xnew,ynew;
-        point p1;
 
-    cout<<"informe o angulo que deseja rotacionar em sentido anti-horario"<<endl;
-    cin>>angulo;
-
-    cout<<"informe o ponto pelo qual deseja rotacionar o poligono"<<endl;
-    cin>>x>>y;
-
-    p1.setXY(x,y);
-
-    for(int i=0;i<N;i++)
-    {
-        xnew = x+(V[i].x-x)*cos(angulo)-(V[i].y - y)*sin(angulo);
-        ynew = y+(V[i].x-x)*sin(angulo) + (V[i].y - y)*cos(angulo);
-        V[i].setXY(xnew,ynew);
-    }
     }
 
     //funcao para imprimir os vertices
 
-    void poligono::imprime()
-    {
-        for(int i=0;i<N;i++)
-        {
-
-            cout <<"("<< V[i].getX() <<","<< V[i].getY()<<")"<<"->";
+    void poligono::imprimir(){
+        int i;
+        for(i=0;i<N;i++){
+            cout << "(" << V[i].getX() << "," << V[i].getY() << ") -> ";
         }
+        cout << "(" << V[0].getX() << "," << V[0].getY() << ")." <<endl;
+    }
+
+
+    point poligono::CentrodeMassa()
+    {
+        float cmx, cmy;
+        for(int i=0;i<N;i++){
+           cmx = V[i].getX() + cmx;
+           cmy = V[i].getY() + cmy;
+        }
+        cmx = cmx/N;
+        cmy = cmy/N;
+    point p;
+    p.setXY(cmx,cmy);
+        return p;
     }

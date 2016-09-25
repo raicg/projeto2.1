@@ -2,19 +2,16 @@
 #define RETANGULO_H
 #include "poligono.h"
 
-class retangulo : public poligono
-{
+/**
+ * @brief A classe Retangulo representa retângulos como polígonos
+ */
+
+class retangulo : public poligono {
+    poligono p;
+    float x, y, largura, altura;
 public:
-    int q, t, largura, altura;
-
-    poligono retang;
-
-    retangulo(int x, int y, int largura, int altura);
-
-    /*void setAltura (int maltura);
-    void setLargura (int mlargura);
-    point* criar(void);
-    void setPonto(void);*/
+    retangulo(float mx, float my, float mlargura, float maltura);
+    ~retangulo();
 };
 
 #endif // RETANGULO_H

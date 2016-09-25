@@ -1,17 +1,40 @@
 #include "retangulo.h"
 #include "poligono.h"
 #include <iostream>
+
 using namespace std;
 
-retangulo::retangulo(int w, int y, int largura, int altura)
+
+retangulo::retangulo(float mx, float my, float mlargura, float maltura)
 {
-    V[0].x=w;
-    V[0].y=y;
-    V[1].x=w+largura;
-    V[1].y=y;
-    V[2].x=w+largura;
-    V[2].y=y-altura;
-    V[3].x=w;
-    V[3].y=y-altura;
-    N=4;
+    x = mx; y = my; largura = mlargura; altura = maltura;
+
+    p.vertice(x,y+altura);
+    p.vertice(x+largura,y+altura);
+    p.vertice(x,y);
+    p.vertice(x+largura,y);
+
+    p.imprimir();
+
+    cout << "Area do retangulo = " << p.area(altura,largura) <<endl;
+
+
+    p.move(-3,4);
+
+    p.imprimir();
+
+    cout << "Area do retangulo = " << p.area(altura,largura) <<endl;
+
+    point cm;
+    cm = p.CentrodeMassa();
+
+    p.rotacionar();
+
+    p.imprimir();
+
+    cout << "Area do retangulo = " << p.area(altura,largura) <<endl;
+
 }
+
+retangulo::~retangulo(){}
+

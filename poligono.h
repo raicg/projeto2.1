@@ -1,24 +1,28 @@
 #ifndef POLIGONO_H
 #define POLIGONO_H
-
 #include "point.h"
 
 class poligono
 {
 public:
-    poligono();
-
     int N=0;
     point V[100];
 
-    //pergar vertices do poligono
+
+    poligono();
+    ~poligono();
+
+    //pegar vertices do poligono
     void vertices();
+
+    //pegar vertices do poligono fornecendo o x e y na funcao
+    void vertice(float _x, float _y);
 
     //retorna o numero de vertices
     int returnN();
 
     //calcula a area do poligono
-    float area();
+    double area(float mlargura, float maltura);
 
     //translada os vertices do poligono
     void move(float a, float b);
@@ -27,9 +31,10 @@ public:
     void rotacionar();
 
     //imprime os vertices do poligono
-    void imprime();
+    void imprimir();
 
-
+    //pega o centro de massa
+    point CentrodeMassa();
 };
 
 #endif // POLIGONO_H
