@@ -23,6 +23,7 @@ public:
 
     //calcula a area do poligono
     double area(float mlargura, float maltura);
+    double Area();
 
     //translada os vertices do poligono
     void move(float a, float b);

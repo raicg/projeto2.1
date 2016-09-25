@@ -25,9 +25,8 @@ retangulo::retangulo(float mx, float my, float mlargura, float maltura)
 
     cout << "Area do retangulo = " << p.area(altura,largura) <<endl;
 
-    point cm;
-    cm = p.CentrodeMassa();
-
+    point centro;
+    centro = p.CentrodeMassa();
     p.rotacionar();
 
     p.imprimir();

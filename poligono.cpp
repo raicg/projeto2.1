@@ -55,7 +55,22 @@ poligono::~poligono(){}
         return N;
     }
 
+
+
     //funcao para retornar a area do poligono
+    double poligono::Area()
+    {
+        point V[100];
+        float a1,a2,afinal;
+        for(int i=0;i<N;i++)
+        {
+            a1 += V[i].getX() * V[i+1].getY();
+            a2 += V[i+1].getX() * V[i].getY();
+        }
+        afinal = (fabs(a1-a2))/2; // calcula o módulo
+        return afinal;
+
+    }
     double poligono::area(float mlargura, float maltura)
     {
         double area;
@@ -65,6 +80,7 @@ poligono::~poligono(){}
 
 
     }
+
 
     //funcao para transladar o poligono
     void poligono::move(float a, float b)
